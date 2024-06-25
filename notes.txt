@@ -39,7 +39,7 @@ Benefit Of DevOps:
 NB: DevOps is a mindset
 
 Grafana New 
- SDLC has 8 Phases
+SDLC has 8 Phases
 - Operations
     - Deploy:
     - Operate
@@ -80,7 +80,7 @@ Process
 - SWAPPING: process of swapping a process temporarily into a secondary memory from the main memory which is fast compared to secondary memory (swapping is based on priority)
 - Memory allocation:Contiguous Memory Allocation and non-contiguous memory allocation
 - Process = executed program
-- Fragmentation: when a process is loaded and removed after execution from memory it create a small free hole Types: Internal Fragmentation External Fragmentation
+- Fragmentation: when a process is loaded and removed after execution from memory it create a small free holeTypes: Internal Fragmentation External Fragmentation
 - Paging is the core process under memory managemement
 
 Linux: Is a multi-user OS and has the the that restrict users access based on priviledges
@@ -133,7 +133,7 @@ PROMOTIONAL TASK
 Relationship is between user > team > company
 Celery: queue executing task 
 
-DAY 5
+DAY 5 (Tuesday 4/06/2024)
 Python For DevOps
 - Bash scripting = linux while powershell = windows
 - Install python3 
@@ -145,3 +145,78 @@ Python For DevOps
 - print(cwd)
 
 PROMOTIONAL TASK 3
+- On a single vagrant file Provision 2 VMS accordingly
+    - Web-server
+    - database
+- configure the web server using a shell provisioner(write the bash script in a different file and reference it using the path option)
+- Customize the resources of your vm: memory=1024
+- Set up nginx server on your machine
+- Configure the db server VM using shell provisioner (write the bash script in a different file and reference it using the path option)
+- Customize the resources of your VM memory=2048
+- Setup mysql on your machine
+- Both machine should be able to communicate with each other on the network
+
+DAY 7 (11/06/2024)GIT
+- Version control systems: AKA source code management system software that track and manage changes to files and other digital assets
+- Problems VCS solves: 
+    - change conflicts, 
+    - data inconsistencies,
+    - reduced system and code maintainability, 
+    - breackdown velocity and speed of development
+- Types: local VCS(git), centralised VCS(apache SVN,), distributed VCS(github)
+
+DAY 8 (14/06/2024) BRANCHING STRATEGIES
+Gitlab flow
+Best practices
+Is CI/CD only limited to one flow
+- Terminal: ssh-keygen (generate an ssh key in your local machine)
+- Your ssh private and public key will be saved in a .ssh folder in the directory you generated your ssh key
+- Cat path-to-file/.ssh/ssh-filename-pub: prints out the public keys
+- Isometric encryption RESEARCH IT
+- Initialise git :git init
+- Git remote add
+
+DAY 9 CI/CD(18/6/2)
+- Meaning continuous Integration and Continuous Development 
+- Why CI/CD:
+    - Automation: Reduces manual intervention
+    - Efficiency:Speeds up the development Process
+    - Quality: Ensure code quality through automated testing
+    - Consistency:
+    - Feedback
+- CI: frequently integrating code changes into a shared repo where automated build and tests are run
+- CD: Extension of CI
+- Github action: CI/CD tools provided by GitHub that allows you to automate, customise and execute your software development
+- Github actions automate processes by setting action as task in a server
+- Github action provides servers for you to run your jobs and other workflows
+- Actions: reusable unit of code that can be shared across workflows enabling modularity and reuse
+- Jobs: A set of steps to be executed as part of the workflow. Each job runs in an isolated environment called a runner
+- Runners:are servers that execute your workflows
+- .github/workflow/name-of-DIR is where you GitHub is going to be looking for 
+- GitHub action uses YAML
+- YAML structure: 
+    - name: name of the action
+    - on: the action is should be monitoring(this is called a trigger workflow)[push,pull-request]
+        - Branch: where the action will be watching(optional)
+    - Jobs:
+        - Runs-on: the OS runner
+        - Steps: steps of action you will follow
+            - name:
+            - uses: action/checkout@v4
+            - Name:display Greeting
+            - run: | echo “welcome to your GitHub workflow”
+        - check-directory”
+        - Runs-on:ubuntu-20.04
+        - steps:
+            - name: List Directories
+            - run: ls -a
+- Best practices
+    - Commit frequent incremental changes:small changes makes it easier to identify issues and ensure smoother integration
+    - Write automated Tests: Ensure code quite and catch bugs early
+    - Use Secrets: Secure sensitive info like API key and credentials using GitHub secrets
+    - Monitor and Optimise:continously monitor CI/CD pipeline for 
+    - Fail Fast
+- Set up server like nginx with github actions can we access it 
+- https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners
+- https://github.com/actions/checkout
+- https://github.com/MalchielUrias/KodeCamp-04repo/tree/main
