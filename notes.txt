@@ -39,7 +39,7 @@ Benefit Of DevOps:
 NB: DevOps is a mindset
 
 Grafana New 
-SDLC has 8 Phases
+ SDLC has 8 Phases
 - Operations
     - Deploy:
     - Operate
@@ -80,7 +80,7 @@ Process
 - SWAPPING: process of swapping a process temporarily into a secondary memory from the main memory which is fast compared to secondary memory (swapping is based on priority)
 - Memory allocation:Contiguous Memory Allocation and non-contiguous memory allocation
 - Process = executed program
-- Fragmentation: when a process is loaded and removed after execution from memory it create a small free holeTypes: Internal Fragmentation External Fragmentation
+- Fragmentation: when a process is loaded and removed after execution from memory it create a small free hole Types: Internal Fragmentation External Fragmentation
 - Paging is the core process under memory managemement
 
 Linux: Is a multi-user OS and has the the that restrict users access based on priviledges
@@ -220,3 +220,67 @@ DAY 9 CI/CD(18/6/2)
 - https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners
 - https://github.com/actions/checkout
 - https://github.com/MalchielUrias/KodeCamp-04repo/tree/main
+
+TUESDAY 25/06/2024 PRACTICAL NETWORKING AND SETTING UP THE AWS ACCT
+Private IP address ranges
+- 10.0.0.0/8 ip addresses:10.0.0.0 - 20.255.255.255
+- 172.16.0.0/12 ip addresses:172.16.0.0 - 172.31.255.255
+- 192.168.0.0/16 ip addresses:192.168.0.0 - 192.168.255.255
+Create VPC on AWS
+VPC - virtual private cloud
+CIDR range formula = 2^(32 - n)
+192.1868.0.0/16 = 2^(32 - 16) = 65,536 host / ip addresses
+192.168.0.0/20 = 2^(32 - 20) = 2^12 = 4096 host
+On AWS create two subnets
+Create a route table: that all internet traffic should be routed to a given or specified service
+
+Note: route table intitially are created when a subnet is created but yet a route table can dynamically be created with subnet association
+
+For a subnet to access the internet needs an internet gateway you can dynamically create the gateway and attach it to your newly assigned vpc
+
+Create servers that you will connect to your subnets
+
+AWS COMPUTE SERVICE CLOUD 02/07/2024
+- C-series of instances: Compute Optimised Instances: gives higher cut and process
+- Memory Optimised Instances:Instances designed for memory intensive applications and deliver performance for large dataset
+- Use cases: In-memory dbs, big data processes, real-time analysis
+- Steps 
+    - Instances
+    - Instance types
+    - Reserved instances
+    - Spot instances:can bid instances but it’s not reliable cos a higher bidder can collect your instances
+    - AWS Lambda: you pay for when your code is executed but not when your code is dormant
+    - AWS Elastic Container Services: Highly scaleable cloud service mostly suitable for team that doesn’t need to do containerised services and need AWS to run most stuffs
+    - AWS EKS: AWS Manages  the kubernates container while you manage the nodes
+    - Amazon LightSail: one can set internet architecture to run basic applications like nodejs, Django and all and it’s quite affordable depending on your workload
+AWS IDENTITY AND ACCESS MANAGEMENT(IAM)
+- Principle of least privilege: users should always be given just enough access to do exactly what they need not more
+- Storage services in AWS: s3, EBS(Elastic Block storage)
+- To access your IAM On your AWS console your can search IAM on the search Bar
+- Then the other will follow suit
+- Once you login with a new AWS acct, create a new account in AWS account as admin, don’t work With your root user account
+- You can create an admin user account you can work with that’s not a root user
+
+9/07/2024 INFRASTRUCTURE AS CODE
+1. CONCEPT
+    1. IaC: Allows you to use declarative scripting languages to create resources, more like creating resources with code
+    2. It offers benefits which allows ease of infrastructure tools reviews like
+    3. IaC tools: salt, puppet, terraform, plum etc
+    4. Terragunt
+    5. The var keyword is used to create variable “var.keyword”
+2. CREATING RESOURCES
+    1. Community for terraform AWS modules
+    2. Terraform AWS modules GitHub
+3. files: name.tf, variable.tf, output.tf
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+Don’t mess with AWS state once it’s been created
+Connect to your was cloud in your cli
+Then configure your aws configure to configure the terraform 
+
+Connect user to AWS console
+Install aws cli 
+Create user
+Download the necessary key during creation 
+AWS configure command to set which account to use
+Set the profile in your terraform file so it will look for the profile 
+
