@@ -9,8 +9,8 @@
 1. Creating a VPC ans naming it KCVPC, IPv4 CIDR block: 10.0.0.0/16
    ![kcvpc](/tasks/promotional-task-5/assets/Screenshot%202024-07-04%20at%2021.35.10.png)
 2. creating a Subnet
-   1. public subnetName: PublicSubnet, IPv4 CIDR block: 10.0.1.0/24 ![public subnet](/tasks/promotional-task-5/assets/Screenshot%202024-07-04%20at%2021.38.23.png)
-   2. PrivateSubnet IPv4 CIDR block: 10.0.2.0/24 ![Private subnet](/tasks/promotional-task-5/assets/Screenshot%202024-07-04%20at%2021.39.34.png)
+   1. public subnetName: PublicSubnet, IPv4 CIDR block: 10.0.1.0/24 ![public subnet](/tasks/promotional-task-5/assets/Screenshot%202024-07-10%20at%2023.50.54.png)
+   2. PrivateSubnet IPv4 CIDR block: 10.0.2.0/24 ![Private subnet](/tasks/promotional-task-5/assets/Screenshot%202024-07-10%20at%2023.55.20.png)
 3. Create and attach an IGW to KCVPC. ![IGW](/tasks/promotional-task-5/assets/Screenshot%202024-07-04%20at%2021.47.08.png)
 4. Route Tables
    1. Public Route Table: name:PublicRouteTable, Associate Public Subnet with this route table. Add a route to the IGW (0.0.0.0/0 -> IGW)![Route table IGW relation](/tasks/promotional-task-5/assets/Screenshot%202024-07-04%20at%2021.54.22.png) ![public route table](/tasks/promotional-task-5/assets/Screenshot%202024-07-10%20at%2022.23.47.png)
