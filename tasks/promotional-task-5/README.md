@@ -19,19 +19,19 @@
    1. Create a NAT Gateway in the PublicSubnet and Allocate an Elastic IP for the NAT Gateway.![public nat gw](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2000.15.08.png)
    2. Update the PrivateRouteTable to route internet traffic (0.0.0.0/0) to the NAT Gateway.![parivate nat routing](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2000.20.29.png)
 6. Set Up Security Groups:
-   1. Create a Security Group for public instances (e.g., web servers): Allow inbound HTTP (port 80) and HTTPS (port 443) traffic from anywhere (0.0.0.0/0). Allow inbound SSH (port 22) traffic from a specific IP (e.g., your local IP). (https://www.whatismyip.com/) Allow all outbound traffic.  ![1](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2000.34.22.png)
-   <!-- ![1](/tasks/promotional-task-5/assets/Screenshot%202024-07-04%20at%2022.06.07.png) ![2](/tasks/promotional-task-5/assets/Screenshot%202024-07-04%20at%2022.05.54.png) ![3](/tasks/promotional-task-5/assets/Screenshot%202024-07-04%20at%2022.05.54.png) ![4](/tasks/promotional-task-5/assets/Screenshot%202024-07-04%20at%2022.05.16.png)-->
+   1. Create a Security Group for public instances (e.g., web servers): Allow inbound HTTP (port 80) and HTTPS (port 443) traffic from anywhere (0.0.0.0/0). Allow inbound SSH (port 22) traffic from a specific IP (e.g., your local IP). (<https://www.whatismyip.com/>) Allow all outbound traffic.  ![1](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2000.34.22.png)
    2. Create a Security Group for private instances (e.g., database servers): Allow inbound traffic from the PublicSubnet on required ports (e.g., MySQL port 3306). Allow all outbound traffic. ![db1](/tasks/promotional-task-5/assets/Screenshot%202024-07-04%20at%2022.11.19.png)
 7. Network ACLs:
-   1. Public Subnet NACL: Allow inbound HTTP, HTTPS, and SSH traffic. Allow outbound traffic. ![NACL](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2000.53.48.png)![](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2001.02.03.png)![](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2001.02.15.png)
-   2. Private Subnet NACL: Allow inbound traffic from the public subnet. Allow outbound traffic to the public subnet and internet.![](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2001.11.27.png)![](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2001.12.19.png)
-8. deploying instance in the public subnet
-9. deploying instances in the private subnet
+   1. Public Subnet NACL: Allow inbound HTTP, HTTPS, and SSH traffic. Allow outbound traffic. ![NACL](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2000.53.48.png)![Nacl](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2001.02.03.png)![nacl](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2001.02.15.png)
+   2. Private Subnet NACL: Allow inbound traffic from the public subnet. Allow outbound traffic to the public subnet and internet.![private NACl](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2001.11.27.png)![private NACL](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2001.12.19.png)
+8. deploying instance in the public subnet ![public instance](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2007.09.30.png)
+9. deploying instances in the private subnet ![private insyance](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2007.11.55.png)
 
-## A diagram of the VPC architecture, showing the VPC, subnets, route tables, and security configurations. (https://excalidraw.com/)
-![](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2006.49.13.png)
+## A diagram of the VPC architecture, showing the VPC, subnets, route tables, and security configurations. (<https://excalidraw.com/>)
 
-## A brief explanation of the purpose and function of each component created (VPC, subnets, IGW, NAT Gateway, route tables, security groups, NACLs).
+![image](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2006.49.13.png)
+
+## A brief explanation of the purpose and function of each component created (VPC, subnets, IGW, NAT Gateway, route tables, security groups, NACLs)
 
 An AWS VPC (Virtual Private Cloud) provides a logically isolated network segment within the AWS cloud.  Here's a breakdown of the key components you mentioned and how they work together:
 
