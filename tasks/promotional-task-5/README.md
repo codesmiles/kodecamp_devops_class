@@ -29,7 +29,7 @@
 
 ## A diagram of the VPC architecture, showing the VPC, subnets, route tables, and security configurations. (<https://excalidraw.com/>)
 
-![image](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2006.49.13.png)
+![image](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2007.51.28.png)
 
 ## A brief explanation of the purpose and function of each component created (VPC, subnets, IGW, NAT Gateway, route tables, security groups, NACLs)
 
