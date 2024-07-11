@@ -28,6 +28,9 @@
 8. deploying instance in the public subnet
 9. deploying instances in the private subnet
 
+## A diagram of the VPC architecture, showing the VPC, subnets, route tables, and security configurations. (https://excalidraw.com/)
+![](/tasks/promotional-task-5/assets/Screenshot%202024-07-11%20at%2006.49.13.png)
+
 ## A brief explanation of the purpose and function of each component created (VPC, subnets, IGW, NAT Gateway, route tables, security groups, NACLs).
 
 An AWS VPC (Virtual Private Cloud) provides a logically isolated network segment within the AWS cloud.  Here's a breakdown of the key components you mentioned and how they work together:
