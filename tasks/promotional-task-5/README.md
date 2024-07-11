@@ -27,4 +27,23 @@
    2. Private Subnet NACL: Allow inbound traffic from the public subnet. Allow outbound traffic to the public subnet and internet.![](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2001.11.27.png)![](/tasks/promotional-task-5/assets/Screenshot%202024-07-09%20at%2001.12.19.png)
 8. deploying instance in the public subnet
 9. deploying instances in the private subnet
-10. A brief explanation of the purpose and function of each component created (VPC, subnets, IGW, NAT Gateway, route tables, security groups, NACLs).
+
+## A brief explanation of the purpose and function of each component created (VPC, subnets, IGW, NAT Gateway, route tables, security groups, NACLs).
+
+An AWS VPC (Virtual Private Cloud) provides a logically isolated network segment within the AWS cloud.  Here's a breakdown of the key components you mentioned and how they work together:
+
+- VPC:  Imagine a walled garden within your AWS account. This garden, the VPC, is your private network where you can securely deploy your resources.
+
+- Subnets:  Within the VPC, you can create subnets, which are smaller, logically separated segments.  Think of these subnets as designated areas within your garden for different purposes.  You might have a public subnet for web servers accessible from the internet, and a private subnet for your database that only internal resources can access.
+
+- Internet Gateway (IGW):  This acts as the front door to the internet for your VPC. If you need resources within your VPC to communicate with the public internet, the IGW provides the connection point.
+
+- NAT Gateway:  Imagine a one-way gate. The NAT Gateway allows instances in private subnets to initiate outbound connections to the internet (to download updates, for example). However, it restricts inbound traffic, keeping your private resources secure from unsolicited access from the internet.
+
+- Route Tables:  These act as traffic directors within your VPC. Each subnet is associated with a route table that defines how traffic from that subnet is routed. A public subnet's route table will point towards the IGW for internet access, while a private subnet's route table might have a route to the NAT Gateway for outbound traffic.
+
+- Security Groups:  Think of these as security guards for your individual resources (like EC2 instances). Security groups act as firewalls, controlling the inbound and outbound traffic to your instances. You define rules within a security group to specify which ports and protocols are allowed for communication.
+
+- Network Access Control Lists (NACLs):  While not always used, NACLs provide an additional layer of security.  These are firewall rules applied at the subnet level, offering more granular control over the type of traffic allowed in and out of your subnets.
+
+By combining these components, you can create a secure and scalable network environment within your AWS cloud.
