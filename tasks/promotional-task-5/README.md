@@ -48,5 +48,3 @@ An AWS VPC (Virtual Private Cloud) provides a logically isolated network segment
 - Security Groups:  Think of these as security guards for your individual resources (like EC2 instances). Security groups act as firewalls, controlling the inbound and outbound traffic to your instances. You define rules within a security group to specify which ports and protocols are allowed for communication.
 
 - Network Access Control Lists (NACLs):  While not always used, NACLs provide an additional layer of security.  These are firewall rules applied at the subnet level, offering more granular control over the type of traffic allowed in and out of your subnets.
-
-By combining these components, you can create a secure and scalable network environment within your AWS cloud.
