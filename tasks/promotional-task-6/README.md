@@ -1,4 +1,4 @@
-# Promotional Task 5
+# Promotional Task 6
 
 1. Using Terraform, design and set up a Virtual Private Cloud (VPC) with both public and private subnets. Implement routing, security groups, and network access control lists (NACLs) to ensure proper communication and security within the VPC and an Ubuntu EC2 instance in each subnet. Work in the AWS EU-West-1 (Ireland) region.
 2. Create separate child modules for your resources and reference them in your root module for readability and re-usability of your code.
