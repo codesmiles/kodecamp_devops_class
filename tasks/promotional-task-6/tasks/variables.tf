@@ -1,9 +1,12 @@
+variable "vpc_cider_blocks" {
+  default = "10.0.0.0/16"
+}
+
+variable "vpc_tags" {
+   default = "KCVPC"
+}
+
 variable "subnets" {
-  type = list(object({
-    name              = string
-    cidr_block        = string
-    availability_zone = string
-  }))
   default = [
     {
       name              = "public_subnet"
@@ -16,4 +19,8 @@ variable "subnets" {
       name              = "private_subnet"
     }
   ]
+}
+
+variable "igw_tags" {
+  default = "kcvpc_igw"
 }
