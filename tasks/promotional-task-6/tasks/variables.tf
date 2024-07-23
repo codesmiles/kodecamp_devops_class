@@ -9,18 +9,23 @@ variable "vpc_tags" {
 variable "subnets" {
   default = [
     {
-      name              = "public_subnet"
+      tags              = "public_subnet"
       cidr_block        = "10.0.1.0/24"
       availability_zone = "us-west-2a"
     },
     {
+      tags              = "private_subnet"
       cidr_block        = "10.0.2.0/24"
       availability_zone = "us-west-2b"
-      name              = "private_subnet"
     }
   ]
 }
 
 variable "igw_tags" {
   default = "kcvpc_igw"
+}
+
+variable "route_tables" {
+  # default = 
+  
 }

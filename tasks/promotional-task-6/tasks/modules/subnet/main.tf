@@ -6,6 +6,6 @@ resource "aws_subnet" "this" {
   availability_zone = var.subnets[count.index].availability_zone
 
   tags = {
-    name = var.subnets[count.index].name
+    name = var.subnets[count.index].tags
   }
 }

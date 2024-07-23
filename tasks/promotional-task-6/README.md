@@ -20,13 +20,13 @@
   - Name: PrivateSubnet
   - IPv4 CIDR block: 10.0.2.0/24
   - Availability Zone: Select any one from your region (preferably the same as the Public Subnet for simplicity)
-Configure an Internet Gateway (IGW):
-Create and attach an IGW to KCVPC.
-Configure Route Tables:
-Public Route Table:
-Name: PublicRouteTable
-Associate PublicSubnet with this route table.
-Add a route to the IGW (0.0.0.0/0 -> IGW).
+- Configure an Internet Gateway (IGW):
+  - Create and attach an IGW to KCVPC.
+- Configure Route Tables:
+  - Public Route Table:
+    - Name: PublicRouteTable
+    - Associate PublicSubnet with this route table.
+    - Add a route to the IGW (0.0.0.0/0 -> IGW).
 Private Route Table:
 Name: PrivateRouteTable
 Associate PrivateSubnet with this route table.

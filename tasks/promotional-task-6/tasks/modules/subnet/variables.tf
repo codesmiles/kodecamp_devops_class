@@ -1,7 +1,7 @@
 variable "subnets" {
   description = "A list of maps defining subnet configurations"
   type = list(object({
-    name              = string
+    tags              = string
     cidr_block        = string
     availability_zone = string
   }))
