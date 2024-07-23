@@ -24,8 +24,3 @@ variable "subnets" {
 variable "igw_tags" {
   default = "kcvpc_igw"
 }
-
-variable "route_tables" {
-  # default = 
-  
-}

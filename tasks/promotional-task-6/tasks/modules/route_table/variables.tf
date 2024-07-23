@@ -10,8 +10,6 @@ variable "route_tables" {
     tags       = string
     cidr_block = string
     gateway_id = string
-
   }))
 
 }
-

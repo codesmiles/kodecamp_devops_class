@@ -3,6 +3,6 @@ variable "subnet_ids" {
   type        = list(string)
 }
 
-variable "tags" {
-  description = "names of tags to associate with the route table"
+variable "route_table_ids" {
+  description = "ID of the public route table to associate with the subnets"
 }

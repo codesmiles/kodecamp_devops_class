@@ -33,12 +33,36 @@ module "internet_gateway" {
 module "route_table" {
   source = "./modules/route_table"
   vpc_id = module.vpc.vpc_id
-  route_tables = [
+  route_tables =  [
     {
       tags = "public_route_table"
       cidr_block = "0.0.0.0/0"
       gateway_id = module.internet_gateway.internet_gateway_id
     } 
   ]
-
 }
+
+module "route_table_associations" {
+  source         = "./modules/route_table_association"
+  subnet_ids      = module.subnets.subnet_ids
+  route_table_ids = module.route_table.route_table_ids
+}
+
+# module "route_table_association" {
+#   source = "./modules/route_table_association"
+#   route_table_id  = route_table
+#   tags 
+#   route_table_id 
+# }
+
+# output "route_table_association_ids" {
+#   value       = [for assoc in aws_route_table_association.subnet_association : assoc.id]
+#   description = "The IDs of the route table associations"
+# }
+
+# resource "aws_route_table_association" "association" {
+#   count          = length(var.subnet_ids)
+#   subnet_id      = var.subnet_ids[count.index]
+#   route_table_id = var.route_table_id
+
+# }

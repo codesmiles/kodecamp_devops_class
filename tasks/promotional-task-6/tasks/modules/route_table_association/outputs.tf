@@ -1,4 +1,4 @@
-output "route_table_association_ids" {
-  value       = [for assoc in aws_route_table_association.subnet_association : assoc.id]
+output "association_ids" {
+  value       = aws_route_table_association.association[*].id
   description = "The IDs of the route table associations"
 }

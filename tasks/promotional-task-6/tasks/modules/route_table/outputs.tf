@@ -1,4 +1,4 @@
-output "route_table_id" {
-  value       = aws_route_table.this.id
-  description = "The ID of the route table"
+output "route_table_ids" {
+  value       = aws_route_table.this[*].id
+  description = "The IDs of the route tables"
 }

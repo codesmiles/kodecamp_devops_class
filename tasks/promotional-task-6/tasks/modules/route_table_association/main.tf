@@ -1,8 +1,5 @@
-resource "aws_route_table_association" "this" {
-  count          = length(var.subnet_ids)
-  subnet_id      = var.subnet_ids[count.index]
-  route_table_id = aws_route_table.public.id
-
-  # tags = var.tags #TODO  continue from here
+resource "aws_route_table_association" "association" {
+  count          = length(var.route_table_ids) * length(var.subnet_ids)
+  subnet_id      = element(var.subnet_ids, count.index % length(var.subnet_ids))
+  route_table_id = element(var.route_table_ids, floor(count.index / length(var.subnet_ids)))
 }
-
