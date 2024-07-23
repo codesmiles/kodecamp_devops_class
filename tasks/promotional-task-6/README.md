@@ -5,20 +5,21 @@
 3. Write a script to install Nginx on your EC2 instance in the public subnet on deployment
 4. Write a script to install PostgreSQL on your EC2 instance in the public subnet on deployment
 5. Clean up resource on completion using terraform destroy
- 
-Requirements:
-Create a VPC:
-Name: KCVPC
-IPv4 CIDR block: 10.0.0.0/16
-Create Subnets:
-Public Subnet:
-Name: PublicSubnet
-IPv4 CIDR block: 10.0.1.0/24
-Availability Zone: Select any one from your region
-Private Subnet:
-Name: PrivateSubnet
-IPv4 CIDR block: 10.0.2.0/24
-Availability Zone: Select any one from your region (preferably the same as the Public Subnet for simplicity)
+
+## Requirements:
+
+- Create a VPC:
+  - Name: KCVPC
+  - IPv4 CIDR block: 10.0.0.0/16
+- Create Subnets:
+  - Public Subnet:
+  - Name: PublicSubnet
+  - IPv4 CIDR block: 10.0.1.0/24
+  - Availability Zone: Select any one from your region
+- Private Subnet:
+  - Name: PrivateSubnet
+  - IPv4 CIDR block: 10.0.2.0/24
+  - Availability Zone: Select any one from your region (preferably the same as the Public Subnet for simplicity)
 Configure an Internet Gateway (IGW):
 Create and attach an IGW to KCVPC.
 Configure Route Tables:
@@ -37,7 +38,7 @@ Update the PrivateRouteTable to route internet traffic (0.0.0.0/0) to the NAT Ga
 Set Up Security Groups:
 Create a Security Group for public instances (e.g., web servers):
 Allow inbound HTTP (port 80) and HTTPS (port 443) traffic from anywhere (0.0.0.0/0).
-Allow inbound SSH (port 22) traffic from a specific IP (e.g., your local IP). (https://www.whatismyip.com/)
+Allow inbound SSH (port 22) traffic from a specific IP (e.g., your local IP). (<https://www.whatismyip.com/>)
 Allow all outbound traffic.
 Create a Security Group for private instances (e.g., database servers):
 Allow inbound traffic from the PublicSubnet on required ports (e.g., PostgreSQL port).
@@ -54,5 +55,6 @@ Launch an EC2 instance in the PrivateSubnet:
 Use the private security group.
 Verify that the instance can access the internet through the NAT Gateway and can communicate with the public instance.
 Deliverables:
+
 1. A detailed report with screenshots of each step.
 2. Output of terraform plan [terraform plan -out tfplan.json or terraform plan -out tfplan.txt]
