@@ -6,10 +6,10 @@ variable "vpc_id" {
 
 variable "route_tables" {
   description = "a list of maps defining the route table configuration"
-  type = list(object({
+  type = object({
     tags       = string
     cidr_block = string
     gateway_id = string
-  }))
+  })
 
 }

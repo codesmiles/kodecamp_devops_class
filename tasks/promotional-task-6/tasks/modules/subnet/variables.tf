@@ -1,10 +1,10 @@
-variable "subnets" {
+variable "subnet" {
   description = "A list of maps defining subnet configurations"
-  type = list(object({
+  type = object({
     tags              = string
     cidr_block        = string
     availability_zone = string
-  }))
+  })
 }
 
 variable "vpc_id" {

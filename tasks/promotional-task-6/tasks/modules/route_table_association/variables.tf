@@ -1,8 +1,9 @@
-variable "subnet_ids" {
-  description = "A list of subnet IDs to associate with the route table"
-  type        = list(string)
+variable "route_table_id" {
+  description = "The ID of the public route table"
+  type        = string
 }
 
-variable "route_table_ids" {
-  description = "ID of the public route table to associate with the subnets"
+variable "subnet_id" {
+  description = "subnet IDs"
+  type        = string
 }
