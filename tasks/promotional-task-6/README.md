@@ -27,19 +27,19 @@
     - Name: PublicRouteTable
     - Associate PublicSubnet with this route table.
     - Add a route to the IGW (0.0.0.0/0 -> IGW).
-Private Route Table:
-Name: PrivateRouteTable
-Associate PrivateSubnet with this route table.
-Ensure no direct route to the internet.
-Configure NAT Gateway:
-Create a NAT Gateway in the PublicSubnet.
-Allocate an Elastic IP for the NAT Gateway.
-Update the PrivateRouteTable to route internet traffic (0.0.0.0/0) to the NAT Gateway.
-Set Up Security Groups:
-Create a Security Group for public instances (e.g., web servers):
-Allow inbound HTTP (port 80) and HTTPS (port 443) traffic from anywhere (0.0.0.0/0).
-Allow inbound SSH (port 22) traffic from a specific IP (e.g., your local IP). (<https://www.whatismyip.com/>)
-Allow all outbound traffic.
+  - Private Route Table:
+    - Name: PrivateRouteTable
+    - Associate PrivateSubnet with this route table.
+    - Ensure no direct route to the internet.
+- Configure NAT Gateway:
+  - Create a NAT Gateway in the PublicSubnet.
+  - Allocate an Elastic IP for the NAT Gateway.
+  - Update the PrivateRouteTable to route internet traffic (0.0.0.0/0) to the NAT Gateway.
+- Set Up Security Groups:
+  - Create a Security Group for public instances (e.g., web servers):
+    - Allow inbound HTTP (port 80) and HTTPS (port 443) traffic from anywhere (0.0.0.0/0).
+    - Allow inbound SSH (port 22) traffic from a specific IP (e.g., your local IP). (<https://www.whatismyip.com/>)
+    - Allow all outbound traffic.
 Create a Security Group for private instances (e.g., database servers):
 Allow inbound traffic from the PublicSubnet on required ports (e.g., PostgreSQL port).
 Allow all outbound traffic.
