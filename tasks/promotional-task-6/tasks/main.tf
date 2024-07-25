@@ -26,8 +26,8 @@ module "public_subnet" {
 }
 
 module "private_subnet" {
-  source  = "./modules/subnet"
-  vpc_id  = module.vpc.vpc_id
+  source = "./modules/subnet"
+  vpc_id = module.vpc.vpc_id
   subnet = var.private_subnet
 }
 
@@ -71,10 +71,9 @@ module "private_route_table_association" {
 module "public_elastic_ip" {
   source = "./modules/elasitc_ip"
   eip = {
-    # instance = "",
     tags = "public_elastic_ip"
   }
-  
+
 }
 
 module "public_nat_gw" {
@@ -82,7 +81,14 @@ module "public_nat_gw" {
 
   nat_gw_cred = {
     elastic_ip_id = module.public_elastic_ip.eip_id,
-    subnet_id = module.public_subnet.subnet_id,
-    tags = "public_nat_gw"
+    subnet_id     = module.public_subnet.subnet_id,
+    tags          = "public_nat_gw"
   }
+}
+
+module "security_group" {
+  source             = "./modules/security_group"
+  vpc_id             = module.vpc.vpc_id
+  public_subnet_cidr = var.public_subnet_cidr
+  my_ip              = var.my_ip_address
 }

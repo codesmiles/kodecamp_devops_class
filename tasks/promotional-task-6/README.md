@@ -40,9 +40,9 @@
     - Allow inbound HTTP (port 80) and HTTPS (port 443) traffic from anywhere (0.0.0.0/0).
     - Allow inbound SSH (port 22) traffic from a specific IP (e.g., your local IP). (<https://www.whatismyip.com/>)
     - Allow all outbound traffic.
-Create a Security Group for private instances (e.g., database servers):
-Allow inbound traffic from the PublicSubnet on required ports (e.g., PostgreSQL port).
-Allow all outbound traffic.
+  - Create a Security Group for private instances (e.g., database servers):
+    - Allow inbound traffic from the PublicSubnet on required ports (e.g., PostgreSQL port).
+    - Allow all outbound traffic.
 Network ACLs:
 Configure NACLs for additional security on both subnets.
 Public Subnet NACL: Allow inbound HTTP, HTTPS, and SSH traffic. Allow outbound traffic.
