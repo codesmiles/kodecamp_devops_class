@@ -35,3 +35,13 @@ output "private_route_table_association_id" {
   value       = module.private_route_table_association.route_association_output
   description = "The IDs of the private route table associations"
 }
+
+output "public_elastic_ip_id" {
+  value = module.public_elastic_ip.eip_id
+  description = "public_elastic_ip"
+}
+
+output "public_nat_gw_id" {
+  value = module.public_nat_gw.nat_gateway_id
+  description = "public nat gatway"
+}

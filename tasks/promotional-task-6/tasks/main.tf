@@ -40,7 +40,7 @@ module "internet_gateway" {
 module "public_route_table" {
   source = "./modules/route_table"
   vpc_id = module.vpc.vpc_id
-  route_tables = {
+  route_table = {
     tags       = "public_route_table"
     cidr_block = "0.0.0.0/0"
     gateway_id = module.internet_gateway.internet_gateway_id
@@ -50,13 +50,12 @@ module "public_route_table" {
 module "private_route_table" {
   source = "./modules/route_table"
   vpc_id = module.vpc.vpc_id
-  route_tables = {
+  route_table = {
     tags       = "private_route_table"
     cidr_block = "0.0.0.0/0"
-    gateway_id = ""
+    gateway_id = module.public_nat_gw.nat_gateway_id
   }
 }
-
 
 module "public_route_table_association" {
   source         = "./modules/route_table_association"
@@ -67,4 +66,23 @@ module "private_route_table_association" {
   source         = "./modules/route_table_association"
   subnet_id      = module.private_subnet.subnet_id
   route_table_id = module.private_route_table.route_table_id
+}
+
+module "public_elastic_ip" {
+  source = "./modules/elasitc_ip"
+  eip = {
+    # instance = "",
+    tags = "public_elastic_ip"
+  }
+  
+}
+
+module "public_nat_gw" {
+  source = "./modules/nat_gateway"
+
+  nat_gw_cred = {
+    elastic_ip_id = module.public_elastic_ip.eip_id,
+    subnet_id = module.public_subnet.subnet_id,
+    tags = "public_nat_gw"
+  }
 }

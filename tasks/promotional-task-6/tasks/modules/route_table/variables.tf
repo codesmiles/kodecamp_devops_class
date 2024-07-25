@@ -4,7 +4,7 @@ variable "vpc_id" {
   description = "The ID of the VPC to associate with the route table"
 }
 
-variable "route_tables" {
+variable "route_table" {
   description = "a list of maps defining the route table configuration"
   type = object({
     tags       = string
