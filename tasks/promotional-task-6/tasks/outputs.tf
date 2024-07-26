@@ -45,3 +45,10 @@ output "public_nat_gw_id" {
   value = module.public_nat_gw.nat_gateway_id
   description = "public nat gatway"
 }
+output "public_instance_id" {
+  value = module.public_ec2_instance.aws_instance_id
+}
+
+output "private_instance_id" {
+  value = module.private_ec2_instance.aws_instance_id
+}

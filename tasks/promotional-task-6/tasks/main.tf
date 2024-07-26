@@ -92,3 +92,25 @@ module "security_group" {
   public_subnet_cidr = var.public_subnet_cidr
   my_ip              = var.my_ip_address
 }
+
+module "public_ec2_instance" {
+  ami           = var.ami
+  sg_id         = [module.security_group.public_sg_id]
+  source        = "./modules/ec2_instance"
+  key_name      =  var.key_name
+  subnet_id     = module.public_subnet.subnet_id
+  file_path     = file("${path.module}/scripts/install_nginx.sh")
+  instance_name = var.public_instance_name
+  instance_type = var.instance_type
+}
+
+module "private_ec2_instance" {
+  ami           = var.ami
+  sg_id         = [module.security_group.private_sg_id]
+  source        = "./modules/ec2_instance"
+  key_name      = var.key_name
+  subnet_id     = module.private_subnet.subnet_id
+  file_path     = file("${path.module}/scripts/install_posgres.sh")
+  instance_name = var.private_instance_name
+  instance_type = var.instance_type
+}

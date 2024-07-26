@@ -37,3 +37,26 @@ variable "my_ip_address" {
   type = string
   default = "102.89.33.144" # Run curl ifconfig.me on your terminal or visit https://www.whatismyip.com/
 }
+
+variable "ami" {
+  type = string
+  default = "ami-07f34a34ca2efac5d" #ubuntu 20.04 LTS
+}
+variable "key_name" {
+    type = string
+    default = "kcvpcfinalkeypair"
+  }
+
+variable "instance_type" {
+  type = string
+  default = "t2.micro"
+  }
+
+  variable "public_instance_name" {
+    type = string
+    default = "public_instance"
+  }
+  variable "private_instance_name" {
+    type = string
+    default = "private_instance"
+  }
