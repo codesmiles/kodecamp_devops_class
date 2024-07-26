@@ -1,8 +1,3 @@
-variable "key_name" {
-  description = "Name of the SSH key pair for accessing EC2 instances"
-  type        = string
-}
-
 variable "sg_id" {
   description = "The Security Group ID for accessing EC2 instances"
   type = list(string)

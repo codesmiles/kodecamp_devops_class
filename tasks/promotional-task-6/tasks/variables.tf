@@ -10,7 +10,7 @@ variable "public_subnet" {
   description = "credentials for public subnet"
   default = {
       cidr_block        = "10.0.1.0/24"
-      availability_zone = "us-west-2a"
+      availability_zone = "eu-west-1a"
       tags              = "public_subnet"
     }
 }
@@ -19,7 +19,7 @@ variable "private_subnet" {
   description = "credentials for private subnet"
   default = {
       cidr_block        = "10.0.2.0/24"
-      availability_zone = "us-west-2b"
+      availability_zone = "eu-west-1b"
       tags              = "private_subnet"
     }
 }
@@ -42,11 +42,6 @@ variable "ami" {
   type = string
   default = "ami-07f34a34ca2efac5d" #ubuntu 20.04 LTS
 }
-variable "key_name" {
-    type = string
-    default = "kcvpcfinalkeypair"
-  }
-
 variable "instance_type" {
   type = string
   default = "t2.micro"

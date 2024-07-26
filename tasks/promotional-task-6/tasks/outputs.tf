@@ -52,3 +52,9 @@ output "public_instance_id" {
 output "private_instance_id" {
   value = module.private_ec2_instance.aws_instance_id
 }
+output "public_instance_ip_address" {
+  value = module.public_ec2_instance.instance_ip_addr
+}
+output "private_instance_ip_address" {
+  value = module.private_ec2_instance.instance_ip_addr
+}
