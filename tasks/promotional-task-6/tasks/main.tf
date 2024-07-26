@@ -86,10 +86,10 @@ module "public_nat_gw" {
 }
 
 module "security_group" {
+  my_ip              = var.my_ip_address
   source             = "./modules/security_group"
   vpc_id             = module.vpc.vpc_id
   public_subnet_cidr = var.public_subnet_cidr
-  my_ip              = var.my_ip_address
 }
 
 module "public_ec2_instance" {
