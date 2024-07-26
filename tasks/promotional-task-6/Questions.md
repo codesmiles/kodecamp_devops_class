@@ -1,7 +1,16 @@
+# Promotional Task 6
+
+1. Using Terraform, design and set up a Virtual Private Cloud (VPC) with both public and private subnets. Implement routing, security groups, and network access control lists (NACLs) to ensure proper communication and security within the VPC and an Ubuntu EC2 instance in each subnet. Work in the AWS EU-West-1 (Ireland) region.
+2. Create separate child modules for your resources and reference them in your root module for readability and re-usability of your code.
+3. Write a script to install Nginx on your EC2 instance in the public subnet on deployment
+4. Write a script to install PostgreSQL on your EC2 instance in the public subnet on deployment
+5. Clean up resource on completion using terraform destroy
+
+## Requirements:
+
 - Create a VPC:
   - Name: KCVPC
   - IPv4 CIDR block: 10.0.0.0/16
-  ![](/tasks/promotional-task-6/assets/create_vpc.png)
 - Create Subnets:
   - Public Subnet:
   - Name: PublicSubnet
@@ -11,36 +20,29 @@
   - Name: PrivateSubnet
   - IPv4 CIDR block: 10.0.2.0/24
   - Availability Zone: Select any one from your region (preferably the same as the Public Subnet for simplicity)
-  ![](/tasks/promotional-task-6/assets/create_subnets.png)
 - Configure an Internet Gateway (IGW):
   - Create and attach an IGW to KCVPC.
-  ![](/tasks/promotional-task-6/assets/setup_IGW.png)
 - Configure Route Tables:
   - Public Route Table:
     - Name: PublicRouteTable
     - Associate PublicSubnet with this route table.
     - Add a route to the IGW (0.0.0.0/0 -> IGW).
-  ![](/tasks/promotional-task-6/assets/public_route_table.png)
   - Private Route Table:
     - Name: PrivateRouteTable
     - Associate PrivateSubnet with this route table.
     - Ensure no direct route to the internet.
-    - ![](/tasks/promotional-task-6/assets/private_route_table.png)
 - Configure NAT Gateway:
   - Create a NAT Gateway in the PublicSubnet.
   - Allocate an Elastic IP for the NAT Gateway.
   - Update the PrivateRouteTable to route internet traffic (0.0.0.0/0) to the NAT Gateway.
-  ![](/tasks/promotional-task-6/assets/public%20nat%20gw.png)
 - Set Up Security Groups:
   - Create a Security Group for public instances (e.g., web servers):
     - Allow inbound HTTP (port 80) and HTTPS (port 443) traffic from anywhere (0.0.0.0/0).
     - Allow inbound SSH (port 22) traffic from a specific IP (e.g., your local IP). (<https://www.whatismyip.com/>)
     - Allow all outbound traffic.
-  ![](/tasks/promotional-task-6/assets/public_sg.png)
   - Create a Security Group for private instances (e.g., database servers):
     - Allow inbound traffic from the PublicSubnet on required ports (e.g., PostgreSQL port).
     - Allow all outbound traffic.
-  ![](/tasks/promotional-task-6/assets/private_sg.png)
 - Network ACLs:
   - Configure NACLs for additional security on both subnets.
   - Public Subnet NACL: Allow inbound HTTP, HTTPS, and SSH traffic. Allow outbound traffic.
