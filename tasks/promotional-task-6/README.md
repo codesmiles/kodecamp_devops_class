@@ -30,7 +30,7 @@
   - Create a NAT Gateway in the PublicSubnet.
   - Allocate an Elastic IP for the NAT Gateway.
   - Update the PrivateRouteTable to route internet traffic (0.0.0.0/0) to the NAT Gateway.
-  ![](/tasks/promotional-task-6/assets/public%20nat%20gw.png)
+  ![](/tasks/promotional-task-6/assets/allocate_elasic_ip_to_na_gw.png)
 - Set Up Security Groups:
   - Create a Security Group for public instances (e.g., web servers):
     - Allow inbound HTTP (port 80) and HTTPS (port 443) traffic from anywhere (0.0.0.0/0).
@@ -49,9 +49,11 @@
   - Launch an EC2 instance in the PublicSubnet:
     - Use the public security group.
     - Verify that the instance can be accessed via the internet.
+![](/tasks/promotional-task-6/assets/public_ec2_instance.png)
   - Launch an EC2 instance in the PrivateSubnet:
     - Use the private security group.
     - Verify that the instance can access the internet through the NAT Gateway and can communicate with the public instance.
+  ![](/tasks/promotional-task-6/assets/private_ec2_instance.png)
 Deliverables:
 
 1. A detailed report with screenshots of each step.
