@@ -1,0 +1,1 @@
+print("Hello, Welcome to KodeCamp DevOps Bookcamp!")
