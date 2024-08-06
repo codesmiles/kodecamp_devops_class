@@ -51,3 +51,4 @@ Kubernetes Commands
 ## Challenges
 
 1. Unable to port forward my service app to a localhost port and access it in my browser
+2. Network issues all through last week
