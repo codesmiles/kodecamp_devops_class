@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: promotional-task-deployment
+  namespace: kodecamp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: promotional-task
+  template:
+    metadata:
+      labels:
+        app: promotional-task
+    spec:
+      containers:
+      - name: promotional-task-container
+        image: codesmiles/promotional_task_7:v1
+        ports:
+        - containerPort: 8080
